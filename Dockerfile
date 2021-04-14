@@ -26,4 +26,4 @@ ENV EXTRA_ARGS ""
 
 COPY --from=base /tmp/teamredminer/teamredminer /usr/local/bin/teamredminer
 
-ENTRYPOINT ./teamredminer -o ${POOL} -u ${WALLET}.${WORKER} -p ${PASSWORD} ${EXTRA_ARGS}
+ENTRYPOINT teamredminer -o ${POOL} -u ${WALLET}.${WORKER} -p ${PASSWORD} ${EXTRA_ARGS}
