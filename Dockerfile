@@ -19,4 +19,6 @@ FROM cebxan/amdgpu-opencl:20.50-123466
 
 COPY --from=base /tmp/teamredminer/teamredminer /usr/local/bin/teamredminer
 
+EXPOSE 4028
+
 ENTRYPOINT ["teamredminer"]
