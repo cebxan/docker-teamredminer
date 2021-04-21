@@ -15,10 +15,9 @@ RUN curl -OL "https://github.com/todxx/teamredminer/releases/download/${TRM_VERS
     && tar -xf teamredminer-v${TRM_VERSION}-linux.tgz \
     && mv teamredminer-v${TRM_VERSION}-linux teamredminer
 
-FROM cebxan/amdgpu-opencl:20.50-1234664
+FROM cebxan/amdgpu-opencl:21.10-1247438
 
 COPY --from=base /tmp/teamredminer/teamredminer /usr/local/bin/teamredminer
-
 EXPOSE 4028
 
 ENTRYPOINT ["teamredminer"]
