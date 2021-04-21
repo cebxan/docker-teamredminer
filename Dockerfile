@@ -9,15 +9,18 @@ WORKDIR /tmp
 
 RUN apt update && apt install -y \
     curl \
-    tar \
-    netcat \
-    && rm -rf /var/lib/apt/lists/*
+    tar
 
 RUN curl -OL "https://github.com/todxx/teamredminer/releases/download/${TRM_VERSION}/teamredminer-v${TRM_VERSION}-linux.tgz" \
     && tar -xf teamredminer-v${TRM_VERSION}-linux.tgz \
     && mv teamredminer-v${TRM_VERSION}-linux teamredminer
 
-FROM cebxan/amdgpu-opencl:21.10-1247438
+FROM cebxan/amdgpu-opencl:21.10-1247438-2
+
+RUN apt update && apt install -y \
+    netcat \
+    jq \
+    && rm -rf /var/lib/apt/lists/*
 
 COPY --from=base /tmp/teamredminer/teamredminer /usr/local/bin/teamredminer
 EXPOSE 4028
