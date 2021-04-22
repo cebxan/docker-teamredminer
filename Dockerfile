@@ -26,6 +26,6 @@ COPY --from=base /tmp/teamredminer/teamredminer /usr/local/bin/teamredminer
 EXPOSE 4028
 
 HEALTHCHECK --interval=30s --timeout=30s --start-period=60s --retries=3 CMD \
-    echo '{"command":"summary"}' | nc localhost 4028 | jq -e 'any(.STATUS[0];.STATUS=="W")' || exit 1
+    echo '{"command":"summary"}' | nc localhost 4028 | jq -e 'any(.STATUS[0];.STATUS=="S")' || exit 1
 
 ENTRYPOINT ["teamredminer"]
