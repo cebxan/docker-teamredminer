@@ -15,7 +15,7 @@ RUN curl -OL "https://github.com/todxx/teamredminer/releases/download/${TRM_VERS
     && tar -xf teamredminer-v${TRM_VERSION}-linux.tgz \
     && mv teamredminer-v${TRM_VERSION}-linux teamredminer
 
-FROM cebxan/amdgpu-opencl:21.10-1247438-2
+FROM cebxan/amdgpu-opencl:20.40-1147286-2
 
 RUN apt update && apt install -y \
     netcat \
