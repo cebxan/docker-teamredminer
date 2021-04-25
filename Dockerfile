@@ -3,7 +3,7 @@ FROM ubuntu:20.04 AS base
 LABEL Name=teamredminer
 LABEL maintainer="Carlos Berroteran (cebxan)"
 
-ARG TRM_VERSION="0.8.2"
+ARG TRM_VERSION="0.8.2.1"
 
 WORKDIR /tmp
 
